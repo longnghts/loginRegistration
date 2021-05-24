@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="text-danger">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} 
+        <div class="row">
+            <div class="col">
+                <form action="/register" method="POST">
+                    <h2>Register A New User!</h2>
+                    <div class = "form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class = "form-control" id = "firstName" name="firstName">
+                    </div>
+                    <div class = "form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class = "form-control" id = "lastName" name="lastName">
+                    </div>
+                    <div class = "form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class = "form-control" id = "email" name="email">
+                    </div>
+                    <div class = "form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class = "form-control" id = "password" name="password">
+                    </div>
+                    <div class = "form-group">
+                        <label for="conf_password">Confirm Password</label>
+                        <input type="password" class = "form-control" id = "confirmPassword" name="conf_password">
+                    </div>
+                    <input type="submit" class = "btn btn-primary" value="Register">
+                </form>
+            </div>
+            <div class="col"> 
+                <form action="/login" method="POST">
+                    <h2>Login:</h2>
+                    <div class = "form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class = "form-control" id = "email" name="email">
+                    </div>
+                    <div class = "form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class = "form-control" id = "password" name="password">
+                    </div>
+                    <input type="submit" class = "btn btn-primary" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
